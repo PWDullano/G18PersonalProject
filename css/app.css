@@ -14,8 +14,20 @@ header{
   border: 1px solid black;
 }
 
-form{
-  padding: 20px 20px 10px 20px
+.left img{
+  margin: 10% 20% 10% 22%;
+}
+
+#artist{
+  margin: 10% 20% 0% 20%;
+}
+
+#location{
+  margin: 10% 20% 0% 20%;
+}
+
+button{
+  margin-left: 20%;
 }
 
 main{
@@ -27,6 +39,14 @@ main{
   border: 1px solid black;
 }
 
+h1{
+  text-align: center;
+}
+
+#container{
+  padding: 5% 10% 10% 10%;
+}
+
 .right{
   display: inline-block;
   background-color: orange;
@@ -34,6 +54,10 @@ main{
   width: 19.9vw;
   height: 80vh;
   border: 1px solid black;
+}
+
+.right img{
+  margin: 30% 20% 30% 15%;
 }
 
 footer{
