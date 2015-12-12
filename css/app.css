@@ -1,0 +1,47 @@
+header{
+  background-color: yellow;
+  width: 99.85vw;
+  height: 15vh;
+  border: 1px solid black;
+}
+
+.left{
+  display: inline-block;
+  background-color: blue;
+  float: left;
+  width: 20vw;
+  height: 80vh;
+  border: 1px solid black;
+}
+
+form{
+  padding: 20px 20px 10px 20px
+}
+
+main{
+  display: inline-block;
+  background: green;
+  float: left;
+  width: 60vw;
+  height: 80vh;
+  border: 1px solid black;
+}
+
+.right{
+  display: inline-block;
+  background-color: orange;
+  position: fixed;
+  width: 19.9vw;
+  height: 80vh;
+  border: 1px solid black;
+}
+
+footer{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:5vh;
+  width:100%;
+  background-color: purple;
+  border: 1px solid black;
+}
