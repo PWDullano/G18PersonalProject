@@ -1,16 +1,18 @@
+/*header*/
 header{
   background-color: yellow;
-  width: 99.85vw;
+  width: 100vw;
   height: 15vh;
   border: 1px solid black;
 }
 
+/*left side*/
 .left{
   display: inline-block;
   background-color: blue;
   float: left;
   width: 20vw;
-  height: 80vh;
+  height: 85vh;
   border: 1px solid black;
 }
 
@@ -30,12 +32,17 @@ button{
   margin-left: 20%;
 }
 
+/*middle section*/
+body{
+  overflow-x: hidden;
+}
+
 main{
   display: inline-block;
   background: green;
   float: left;
   width: 60vw;
-  height: 80vh;
+  height: 85vh;
   border: 1px solid black;
 }
 
@@ -47,12 +54,15 @@ h1{
   padding: 5% 10% 10% 10%;
 }
 
+/*right side*/
 .right{
   display: inline-block;
+  position: absolute;
+  float: right;
   background-color: orange;
-  position: fixed;
-  width: 19.9vw;
-  height: 80vh;
+  width: 18vw;
+  height: 85vh;
+  padding-left: 7.4px;
   border: 1px solid black;
 }
 
@@ -60,12 +70,13 @@ h1{
   margin: 30% 20% 30% 15%;
 }
 
+/*footer*/
 footer{
-  position:fixed;
+  position: fixed;
   left:0px;
   bottom:0px;
   height:5vh;
-  width:100%;
+  width:100vw;
   background-color: purple;
   border: 1px solid black;
 }
