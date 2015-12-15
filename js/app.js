@@ -17,19 +17,13 @@
 //   console.log('working')
 // })
 //
-$(document).ready(function initialize(x,y){
-  var mapCanvas = document.getElementById('map')
-  var mapOptions = {
-      center: new google.maps.LatLng(39.753211, -104.9924934),
-      zoom: 17,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-  var map = new google.maps.Map(mapCanvas, mapOptions);
-});
+
 
 
 $('#asubmit').click(function(){
   searchLocation = $('#location').val();
+  $('p').remove();
+  $('a').remove();
   searchDate = JSON.stringify( $('#date').val() );
   getter = $.ajax({
     url:'http://api.songkick.com/api/3.0/search/locations.json?query='+searchLocation+'&apikey=tZIW4JSPRTZrAMk3&jsoncallback=?',
@@ -51,16 +45,33 @@ $('#asubmit').click(function(){
 
     events.forEach(function(results){
       if(searchDate === JSON.stringify(results['start']['date']) ){
+        var lng = results['location']['lng']
+        var lat = results['location']['lat']
+        function createMap(){
+          var mapCanvas = document.getElementById('map')
+          var mapOptions = {
+              center: new google.maps.LatLng(39.753211, -104.9924934),
+              zoom: 15,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+          var position = new google.maps.LatLng(lat, lng);
+          marker = new google.maps.Marker({
+                   position: position,
+                   map: map,
+
+               });
+             };
         $('#container').append('<p>'+results['displayName']+' '+results['start']['time']+'</p>');
         $('#container').append('<p>'+results['venue']['displayName']+'</p>');
         $('#container').append('<p>'+results['location']['city']+'</p>')
         $('#container').append('<a href='+results['uri']+' "</a>Click here for additional info from Songkick page! ')
+        createMap();
       }
    })
   })
  })
 })
-
 
 // var eventInfo = x['displayName']
 //   console.log(eventInfo);
