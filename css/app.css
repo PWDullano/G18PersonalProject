@@ -1,19 +1,24 @@
+*{
+  font-family: 'Abel', sans-serif;
+}
+
 /*header*/
 header{
-  background-color: yellow;
+  background-color: #1E2126;
   width: 100vw;
   height: 15vh;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 /*left side*/
 .left{
   display: inline-block;
-  background-color: blue;
+  background-color: #F80046;
   float: left;
   width: 20vw;
-  height: 85vh;
-  border: 1px solid black;
+  height: 80vh;
+  min-width: 20vw;
+  border-radius: 0px 10px 10px 0px;
 }
 
 .left img{
@@ -25,11 +30,20 @@ header{
 }
 
 #date{
-  margin: 10% 20% 0% 20%;
+  margin: 5% 20% 5% 20%;
+}
+
+form{
+  border-radius: 10px;
 }
 
 button{
+  color: #F2F2F2;
+  background-color: #1E2126;
+  border-radius: 5px;
+  margin-top: 10px;
   margin-left: 20%;
+  width: 55%;
 }
 
 /*middle section*/
@@ -39,11 +53,11 @@ body{
 
 main{
   display: inline-block;
-  background: green;
+  background-color: #F2F2F2;
   float: left;
   width: 60vw;
   height: 85vh;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 h1{
@@ -56,22 +70,34 @@ h1{
   overflow-y: scroll;
 }
 
+#appended{
+  color: #F2F2F2;
+  background-color: #1E2126;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 /*right side*/
 .right{
   display: inline-block;
   position: absolute;
   float: right;
-  background-color: orange;
+  background-color: #1E2126;
+  border-radius: 10px 0px 0px 10px;
   width: 18vw;
-  height: 85vh;
-  padding-left: 7.4px;
-  border: 1px solid black;
+  height: 80vh;
+  padding-left: 30px;
 }
 
 #map{
-  margin: 30% 20% 30% 15%;
+  margin: 30% 0% 30% 4%;
+  padding-left: 20px;
+  text-align: center;
   width: 200px;
   height: 350px;
+  border-radius: 10px;
+  /*background-color: white;*/
 }
 
 /*footer*/
@@ -81,6 +107,6 @@ footer{
   bottom:0px;
   height:5vh;
   width:100vw;
-  background-color: purple;
-  border: 1px solid black;
+  background-color: #1E2126;
+  /*border: 1px solid black;*/
 }
