@@ -6,6 +6,30 @@
 // http://api.songkick.com/api/3.0/events.json?location=clientip&apikey={your_api_key}&jsoncallback=?
 
 // 'http://developer.echonest.com/api/v4/artist/biographies?api_key=DVMHKXTBO5LYPLMXE&id=songkick:artist:'+idNumber+'&format=json&results=1&start=0'
+var lat;
+var lng;
+var eventInfo;
+
+$(document).on('click','#appended',function(){
+  console.log(lat, lng)
+})
+
+function createMap(){
+  var mapCanvas = document.getElementById('map')
+  var mapOptions = {
+    center: new google.maps.LatLng(lat, lng),
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var position = new google.maps.LatLng(lat, lng);
+  marker = new google.maps.Marker({
+    position: position,
+    map: map,
+    title: eventInfo
+
+  });
+};
 
 $('#asubmit').click(function(){
   searchLocation = $('#location').val();
@@ -32,30 +56,11 @@ $('#asubmit').click(function(){
 
     events.forEach(function(results){
       if(searchDate === JSON.stringify(results['start']['date']) ){
-        var lng = results['location']['lng']
-        var lat = results['location']['lat']
-        var eventInfo = results['displayName']
-
-        function createMap(){
-          var mapCanvas = document.getElementById('map')
-          var mapOptions = {
-              center: new google.maps.LatLng(39.753211, -104.9924934),
-              zoom: 15,
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-          var map = new google.maps.Map(mapCanvas, mapOptions);
-          var position = new google.maps.LatLng(lat, lng);
-          marker = new google.maps.Marker({
-                   position: position,
-                   map: map,
-                   title: eventInfo
-
-               });
-             };
+        lat = results['location']['lat']
+        lng = results['location']['lng']
+        eventInfo = results['displayName']
+        console.log(lat, lng)
         $('#container').append('<p id="appended">'+results['displayName']+' '+results['start']['time']+'<br>'+results['location']['city']+'<br><a href='+results['uri']+' "</a>Click here for additional event info from Songkick page! '+'</p>');
-        // $('#container').append('<p>'+results['venue']['displayName']+'</p>');
-        // $('#container').append('<p>'+results['location']['city']+'</p>')
-        // $('#container').append('<br><a href='+results['uri']+' "</a>Click here for additional event info from Songkick page! ')
         createMap();
       }
    })
