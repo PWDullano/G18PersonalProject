@@ -9,6 +9,7 @@ $(document).ready(function(){
 
 $('#asubmit').click(function(){
   searchLocation = $('#location').val();
+  deleteMarkers();
   $('p').remove();
   $('a').remove();
   searchDate = JSON.stringify( $('#date').val() );
@@ -52,7 +53,7 @@ $('#asubmit').click(function(){
           });
 
           //append results
-          $('#container').append('<p id="appended">'+results['displayName']+' '+results['start']['time']+'<br>'+results['location']['city']+'<br><a href='+results['uri']+' "</a>Click here for additional event info from Songkick page! '+'</p>');
+          $('#container').append('<p class="appended animated fadeInDown">'+results['displayName']+' '+results['start']['time']+'<br>'+results['location']['city']+'<br><a href='+results['uri']+' "</a>Click here for additional event info from Songkick page! '+'</p>');
         }
 
       if(searchDate === JSON.stringify(results['start']['date']) ){

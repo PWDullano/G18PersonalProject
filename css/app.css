@@ -18,7 +18,7 @@ header h1{
 /*left side*/
 .left{
   display: inline-block;
-  background-color: #F80046;
+  background-color: #1E2126;
   float: left;
   width: 20vw;
   height: 80vh;
@@ -43,8 +43,8 @@ form{
 }
 
 button{
-  color: #F2F2F2;
-  background-color: #1E2126;
+  color: #1E2126;
+  background-color: #f80046;
   border-radius: 5px;
   margin-top: 10px;
   margin-left: 20%;
@@ -74,11 +74,12 @@ h1{
   overflow-y: scroll;
 }
 
-#appended{
+.appended{
   color: #F2F2F2;
   background-color: #1E2126;
   border: 1px solid black;
   padding: 10px;
+  border-radius: 10px;
 }
 
 /*right side*/
@@ -86,7 +87,7 @@ h1{
   display: inline-block;
   position: absolute;
   float: right;
-  background-color: #F80046;
+  background-color: #1E2126;
   border-radius: 10px 0px 0px 10px;
   width: 18vw;
   height: 80vh;
@@ -111,4 +112,18 @@ footer{
   height:5vh;
   width:100vw;
   background-color: #1E2126;
+}
+
+#name{
+  float: right;
+  padding-right: 20px;
+  margin-top: 0;
+  color: #F2F2F2;
+}
+
+#copy{
+  float: left;
+  padding-left: 20px;
+  margin-top: 0;
+  color: #F2F2F2;
 }
