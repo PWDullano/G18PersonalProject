@@ -9,27 +9,20 @@
 var lat;
 var lng;
 var eventInfo;
+var map;
 
 $(document).on('click','#appended',function(){
   console.log(lat, lng)
 })
 
-function createMap(){
-  var mapCanvas = document.getElementById('map')
+$(document).ready(function(){
   var mapOptions = {
-    center: new google.maps.LatLng(lat, lng),
+    center: new google.maps.LatLng(54, -2),
     zoom: 13,
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  var map = new google.maps.Map(mapCanvas, mapOptions);
-  var position = new google.maps.LatLng(lat, lng);
-  marker = new google.maps.Marker({
-    position: position,
-    map: map,
-    title: eventInfo
-
-  });
-};
+}
+map = new google.maps.Map(document.getElementById('map'), mapOptions)
+});
 
 $('#asubmit').click(function(){
   searchLocation = $('#location').val();
@@ -59,15 +52,21 @@ $('#asubmit').click(function(){
         lat = results['location']['lat']
         lng = results['location']['lng']
         eventInfo = results['displayName']
+        var position = new google.maps.LatLng(lat, lng);
+        marker = new google.maps.Marker({
+          position: position,
+          map: map,
+          title: eventInfo
+
+        });
         console.log(lat, lng)
         $('#container').append('<p id="appended">'+results['displayName']+' '+results['start']['time']+'<br>'+results['location']['city']+'<br><a href='+results['uri']+' "</a>Click here for additional event info from Songkick page! '+'</p>');
-        createMap();
+        // createMap();
       }
    })
   })
  })
 })
-
 // var eventInfo = x['displayName']
 //   console.log(eventInfo);
 // var eventVenue = events["venue"]["displayName"]
