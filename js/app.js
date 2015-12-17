@@ -1,12 +1,3 @@
-var lat;
-var lng;
-var eventInfo;
-var map;
-
-$(document).on('click','#appended',function(){
-  console.log(lat, lng)
-})
-
 $(document).ready(function(){
   var mapOptions = {
     center: new google.maps.LatLng(39.754434,-104.978614),
@@ -39,20 +30,41 @@ $('#asubmit').click(function(){
   getters.done(function(responses){
     var events = responses['resultsPage']['results']['event']
 
-    events.forEach(function(results){
+    events.forEach(function(results, i){
+        function resultss(){
+          lat = results['location']['lat']
+          lng = results['location']['lng']
+          eventInfo = results['displayName']
+
+          //map marker
+          var bounds = new google.maps.LatLngBounds();
+          var position = new google.maps.LatLng(lat, lng);
+          bounds.extend(position);
+          marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: eventInfo
+          });
+          map.fitBounds(bounds);
+          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+            this.setZoom(9);
+            google.maps.event.removeListener(boundsListener);
+          });
+
+          //append results
+          $('#container').append('<p id="appended">'+results['displayName']+' '+results['start']['time']+'<br>'+results['location']['city']+'<br><a href='+results['uri']+' "</a>Click here for additional event info from Songkick page! '+'</p>');
+        }
+
       if(searchDate === JSON.stringify(results['start']['date']) ){
-        lat = results['location']['lat']
-        lng = results['location']['lng']
-        eventInfo = results['displayName']
-        var position = new google.maps.LatLng(lat, lng);
-        marker = new google.maps.Marker({
-          position: position,
-          map: map,
-          title: eventInfo
-        });
-        $('#container').append('<p id="appended">'+results['displayName']+' '+results['start']['time']+'<br>'+results['location']['city']+'<br><a href='+results['uri']+' "</a>Click here for additional event info from Songkick page! '+'</p>');
+        resultss();
+      } else if(searchDate === '""') {
+        resultss();
       }
    })
   })
  })
 })
+
+// $(document).on('click','#appended', function(){
+//   console.log(lat,lng)
+// })

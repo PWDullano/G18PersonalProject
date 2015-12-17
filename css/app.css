@@ -7,7 +7,12 @@ header{
   background-color: #1E2126;
   width: 100vw;
   height: 15vh;
-  /*border: 1px solid black;*/
+}
+
+header h1{
+  color: #F2F2F2;
+  margin: 0;
+  padding-top: 30px;
 }
 
 /*left side*/
@@ -57,7 +62,6 @@ main{
   float: left;
   width: 60vw;
   height: 85vh;
-  /*border: 1px solid black;*/
 }
 
 h1{
@@ -65,8 +69,8 @@ h1{
 }
 
 #container{
-  padding: 5% 10% 10% 10%;
-  max-height: 350px;
+  padding: 0% 10% 0% 10%;
+  max-height: 550px;
   overflow-y: scroll;
 }
 
@@ -75,7 +79,6 @@ h1{
   background-color: #1E2126;
   border: 1px solid black;
   padding: 10px;
-  border-radius: 5px;
 }
 
 /*right side*/
@@ -83,7 +86,7 @@ h1{
   display: inline-block;
   position: absolute;
   float: right;
-  background-color: #1E2126;
+  background-color: #F80046;
   border-radius: 10px 0px 0px 10px;
   width: 18vw;
   height: 80vh;
@@ -97,7 +100,7 @@ h1{
   width: 200px;
   height: 350px;
   border-radius: 10px;
-  /*background-color: white;*/
+  background-color:#F80046;
 }
 
 /*footer*/
@@ -108,5 +111,4 @@ footer{
   height:5vh;
   width:100vw;
   background-color: #1E2126;
-  /*border: 1px solid black;*/
 }
