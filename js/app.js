@@ -9,7 +9,6 @@ $(document).ready(function(){
 
 $('#asubmit').click(function(){
   searchLocation = $('#location').val();
-  deleteMarkers();
   $('p').remove();
   $('a').remove();
   searchDate = JSON.stringify( $('#date').val() );
@@ -41,7 +40,7 @@ $('#asubmit').click(function(){
           var bounds = new google.maps.LatLngBounds();
           var position = new google.maps.LatLng(lat, lng);
           bounds.extend(position);
-          marker = new google.maps.Marker({
+          var marker = new google.maps.Marker({
             position: position,
             map: map,
             title: eventInfo
@@ -65,7 +64,3 @@ $('#asubmit').click(function(){
   })
  })
 })
-
-// $(document).on('click','#appended', function(){
-//   console.log(lat,lng)
-// })
